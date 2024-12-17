@@ -37,7 +37,7 @@ const Dashboard = () => {
 
                 <div className="grid grid-cols-3 w-full gap-x-4">
                     <AdWatcherCard
-                        title="Click Ads"
+                        title="Click Ads (Low)"
                         icon={<TbHandClick size={50} />}
                         link={"https://luglawhaulsano.net/4/7438395"}
                         onClick={() => dispatch(handlePointsRedux({
@@ -45,15 +45,19 @@ const Dashboard = () => {
                             type: "increase",
                             point: 30
                         }))}
+                        points={10}
                     />
                     <AdWatcherCard
-                        title="Click Ads"
+                        title="Click Ads (High)"
                         icon={<LuMousePointerClick size={50} />}
-                        link={"https://luglawhaulsano.net/4/7438395"}
-                        onClick={() => dispatch(handlePoints({
+                        // link={"https://luglawhaulsano.net/4/7438395"}
+                        link={"https://luglawhaulsano.net/4/7432883"}
+                        onClick={() => dispatch(handlePointsRedux({
+                            _id: user?.id,
                             type: "increase",
-                            point: 30
+                            point: 50
                         }))}
+                        points={5}
                     />
                 </div>
             </div>
