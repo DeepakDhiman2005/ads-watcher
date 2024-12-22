@@ -14,6 +14,7 @@ import { TbHandClick } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
 import { handlePoints, handlePointsRedux } from "../../redux/features/point";
 import { getUserRedux } from "../../redux/features/user";
+import usePath from "../../hooks/usePath";
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Dashboard = () => {
     const { userData } = useSelector(state => state.user);
     // console.log(user);
     // console.log(userData);
+    const path = usePath();
 
     useEffect(() => {
         dispatch(getUserRedux(user?.id));
@@ -43,7 +45,9 @@ const Dashboard = () => {
                         onClick={() => dispatch(handlePointsRedux({
                             _id: user?.id,
                             type: "increase",
-                            point: 30
+                            point: 10
+                        }, (call) => {
+                            if(call) path.openLink("https://luglawhaulsano.net/4/7438395", "_self");
                         }))}
                         points={10}
                     />
@@ -55,9 +59,11 @@ const Dashboard = () => {
                         onClick={() => dispatch(handlePointsRedux({
                             _id: user?.id,
                             type: "increase",
-                            point: 50
+                            point: 20
+                        }, (call) => {
+                            if(call) path.openLink("https://luglawhaulsano.net/4/7432883", "_self");
                         }))}
-                        points={5}
+                        points={20}
                     />
                 </div>
             </div>

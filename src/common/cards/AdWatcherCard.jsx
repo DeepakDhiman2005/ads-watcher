@@ -13,7 +13,7 @@ const AdWatcherCard = ({
     return <>
         <TouchableOpacity onClick={() => {
             onClick();
-            path.openLink(link, "_self");
+            // path.openLink(link, "_self");
         }}>
             <div className="w-full h-full text-black main-text py-4 rounded-md bg-gray-300 hover:bg-gray-400 transition-all hover:shadow-lg hover:shadow-slate-300 cursor-pointer flex flex-col relative justify-center items-center gap-y-3">
                 {icon}

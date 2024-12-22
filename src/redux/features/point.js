@@ -58,12 +58,13 @@ export const handlePoints = (payload) => {
       * @param {number} payload.point default 0
       * @param {string} payload._id database _id
     */
-export const handlePointsRedux = (payload) => {
+export const handlePointsRedux = (payload, callback = () => { }) => {
     return async (dispatch) => {
         try {
             const response = await axios.post("/points/update", payload);
             if (response.status === 200) {
                 dispatch(getUserRedux(payload?._id));
+                callback(true);
             }
         } catch (error) {
             handleError(error);
@@ -73,12 +74,12 @@ export const handlePointsRedux = (payload) => {
 
 export const withdrawAmountRedux = (
     payload,
-    callback = () => {}
+    callback = () => { }
 ) => {
     return async () => {
         try {
             const response = await axios.post("/points/withdraw", payload);
-            if(response.status === 200){
+            if (response.status === 200) {
                 handleMessage({ msg: response.data?.message });
                 callback(true);
             }
@@ -92,17 +93,19 @@ export const withdrawAmountRedux = (
 
 export const pointsToAmountRedux = (
     payload,
+    callback = () => { }
 ) => {
     return async (dispatch) => {
         try {
             const response = await axios.post("/points/amount", payload);
-            if(response.status === 200){
+            if (response.status === 200) {
                 handleMessage({ msg: response.data?.message });
                 dispatch(getUserRedux(payload?._id));
+                callback(true);
             }
         } catch (error) {
             handleError(error);
-        } 
+        }
     }
 }
 
@@ -112,12 +115,12 @@ export const convertWithdrawRedux = (
     return async (dispatch) => {
         try {
             const response = await axios.post("/points/convertWithdraw", payload);
-            if(response.status === 200){
+            if (response.status === 200) {
                 handleMessage({ msg: response.data?.message });
                 dispatch(getUserRedux(payload?._id));
             }
         } catch (error) {
             handleError(error);
-        } 
+        }
     }
 }

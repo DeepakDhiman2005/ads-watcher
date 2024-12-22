@@ -9,6 +9,7 @@ const MyModal = ({
     title = "",
     className = "",
     children,
+    width = "60%",
 }) => {
     const handleClose = () => setIsOpen(false);
 
@@ -17,8 +18,8 @@ const MyModal = ({
             open={isOpen}
             handler={handleClose}
             style={{
-                width: 1000,
-                maxWidth: 800
+                width: width,
+                maxWidth: width
             }}
         >
             <div className="rounded-md overflow-hidden">

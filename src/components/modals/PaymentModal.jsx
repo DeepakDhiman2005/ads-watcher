@@ -36,8 +36,9 @@ const PaymentModal = ({
             setIsOpen={setIsOpen}
             title="Withdraw Amount"
             className="py-6 flex flex-col justify-start gap-y-4 items-center"
+            width="80%"
         >
-            <div className="w-full grid grid-cols-2 gap-x-3">
+            <div className="w-full grid grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-3">
                 <InputField
                     control={control}
                     name="accountNumber"
